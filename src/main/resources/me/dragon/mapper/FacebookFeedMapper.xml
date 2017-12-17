@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="me.dragon.mapper.FacebookFeedMapper" >
+    <select id="getFacebookFeedList" resultType="me.dragon.model.entity.FacebookFeed">
+        SELECT * FROM fb_feed ORDER BY created_time DESC
+    </select>
+
+    <select id="apiGetFacebookVoList" resultType="me.dragon.model.vo.FacebookVO">
+        SELECT
+        f.id,
+        f.message,
+        p.pic_real_path AS pic
+        FROM fb_feed AS f,fb_feed_picture AS p
+        <where>
+            f.id = p.id AND LENGTH(f.id) > 28
+        </where>
+        ORDER BY f.id DESC
+    </select>
+</mapper>

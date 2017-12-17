@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="me.dragon.mapper.InstagramFeedMapper" >
+    <select id="getFeedList" resultType="me.dragon.model.entity.InstagramFeed">
+        SELECT * FROM instagram_feed ORDER BY date DESC
+    </select>
+
+    <select id="apiGetInstagramVoList" resultType="me.dragon.model.vo.InstagramVO">
+        SELECT
+         f.date,
+         f.caption,
+         p.pic_real_path AS pic
+         FROM instagram_feed AS f,instagram_feed_picture AS p
+         <where>
+             f.date = p.date
+         </where>
+         ORDER BY f.date DESC
+    </select>
+</mapper>
