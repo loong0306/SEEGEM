@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<scroll-view class="container" style="height: 1200rpx;" scroll-y="true">
+  <view class='div-img' wx:for="{{ facebookList }}" wx:key="item">
+      <image src="{{ item.pic }}" class='gallery-img' mode="widthFix"></image>
+      <code style="display: inline-block;" id="{{ item.id }}">{{ item.message }}</code>
+  </view>
+  <view class="footer">
+      <view style="font-family: 幼圆;font-size:13px;">G.E.M. Facebook 每小时自动更新</view>
+  </view>
+</scroll-view>

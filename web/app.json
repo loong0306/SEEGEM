@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "client/pages/fb/index",
+    "client/pages/ins/index",
+    "client/pages/about/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "SEEGEM",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#737373 ",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "client/pages/fb/index",
+        "text": "FaceBook"
+      },
+      {
+        "pagePath": "client/pages/ins/index",
+        "text": "Instagram"
+      },
+      {
+        "pagePath": "client/pages/about/index",
+        "text": "About"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

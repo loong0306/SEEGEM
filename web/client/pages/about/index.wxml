@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<scroll-view>
+  <view class="userinfo">  
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>  
+  </view>
+  <span class='title'>SEEGEM</span>
+  <span class='title-text'>v0.0.3</span>
+</scroll-view>
+
+<view class='footer'>
+<span>微博：DragonYuan丶</span>
+</view>

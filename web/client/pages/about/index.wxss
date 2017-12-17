@@ -1,0 +1,48 @@
+/* pages/about/index.wxss */
+.title {
+  text-align: center;
+  margin: 40px 0 0 0;
+}
+
+span {
+  display: block;
+  text-align: center;
+  margin: 5px 0 5px 0;
+  font-family: 'Helvetica';
+}
+
+.title {
+  font-size: 20px;
+}
+
+.title-text {
+  font-size: 15px;
+  color: gray;
+}
+
+.footer {
+  position:fixed;
+  bottom:25px;
+  width: 100%;
+  margin: auto;
+}
+
+.footer span {
+  text-align: center;
+  font-size: 13px;
+  color: gray;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 70px 0 0 0;
+}
+
+.userinfo-avatar {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
