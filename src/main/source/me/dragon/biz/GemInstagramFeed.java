@@ -85,27 +85,47 @@ public class GemInstagramFeed implements PageProcessor {
 
                 JSONArray jsonArray_2 = JSONArray.parseArray(jsonResult_ProfilePage);
                 JSONObject jsonObject_3 = (JSONObject) jsonArray_2.get(0);
-                String jsonResult_User = jsonObject_3.get("user").toString();
+                String jsonResult_Graphql = jsonObject_3.get("graphql").toString();
 
-                JSONObject jsonObject_4 = JSON.parseObject(jsonResult_User);
-                String jsonResult_Media = jsonObject_4.get("media").toString();
+                JSONObject jsonObject_4 = JSON.parseObject(jsonResult_Graphql);
+                String jsonResult_User = jsonObject_4.get("user").toString();
 
-                JSONObject jsonObject_5 = JSON.parseObject(jsonResult_Media);
-                String jsonResult_Nodes = jsonObject_5.get("nodes").toString();
+                JSONObject jsonObject_5 = JSON.parseObject(jsonResult_User);
+                String jsonResult_Media = jsonObject_5.get("edge_owner_to_timeline_media").toString();
 
-                // jsonArray_6 为 JSON最后结果集
-                JSONArray jsonArray_6 = JSONArray.parseArray(jsonResult_Nodes);
+                JSONObject jsonObject_6 = JSON.parseObject(jsonResult_Media);
+                String jsonResult_Edges = jsonObject_6.get("edges").toString();
+
+                // jsonArray_7 为 JSON最后结果集
+                JSONArray jsonObject_7 = JSONArray.parseArray(jsonResult_Edges);
 
                 // 初始化用于存放获取当前数据的InstagramFeed集合
                 List<InstagramFeed> instagramFeedList = new ArrayList<InstagramFeed>();
                 // 初始化用于存放获取当前数据的InstagramFeedPicture集合
                 List<InstagramFeedPicture> instagramFeedPictureList = new ArrayList<InstagramFeedPicture>();
 
-                for (Object jo : jsonArray_6) {
-                    JSONObject jsonObject = (JSONObject) jo;
-                    String feed_date = jsonObject.get("date").toString();
-                    String feed_thumbnailSrc = jsonObject.get("thumbnail_src").toString();
-                    String feed_caption = jsonObject.get("caption").toString();
+                for (Object object : jsonObject_7) {
+                    JSONObject jsonObjectFlag = (JSONObject) object;
+                    String jsonResult_Node = jsonObjectFlag.get("node").toString();
+                    JSONObject jsonObject = JSON.parseObject(jsonResult_Node);
+                    // 获取ID
+                    String feed_date = jsonObject.get("id").toString();
+                    // 获取图片
+                    String feed_thumbnailSrc = jsonObject.get("display_url").toString();
+                    // 获取caption
+                    String jsonResult_Media_Caption = jsonObject.get("edge_media_to_caption").toString();
+                    JSONObject jsonObjectCaptionFlag = JSON.parseObject(jsonResult_Media_Caption);
+                    String jsonResultCaptionEdgesFlag = jsonObjectCaptionFlag.get("edges").toString();
+                    JSONArray jsonArrayCaptionNodeFlag = JSONArray.parseArray(jsonResultCaptionEdgesFlag);
+                    String feed_caption = "";
+                    if (jsonArrayCaptionNodeFlag.size() > 0) {
+                        JSONObject jsonObjectCaptionNodeFlag = (JSONObject) jsonArrayCaptionNodeFlag.get(0);
+                        String jsonObjectCaptionNode = jsonObjectCaptionNodeFlag.get("node").toString();
+                        JSONObject jsonObjectTextFlag = JSON.parseObject(jsonObjectCaptionNode);
+                        feed_caption = jsonObjectTextFlag.get("text").toString();
+                    } else {
+                        feed_caption = "NULL";
+                    }
 
                     // 保存操作
                     // 保存到InstagramFeed
