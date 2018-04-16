@@ -4,6 +4,7 @@ WeChat applet 'SEEGEM'.Welcome to subscribe !</br>
 
 #### 关于项目：
 ```html
+（项目为大学系列，2018年4月16日更新了一下代码，有感：发现一年前写的代码真的有些low，体会到了coding真的会不断让人进步与成长。）
 1.SEEGEM项目是我为了追偶像（G.E.M）开发的微信小程序，方便查看爱豆在FB和INS上的图文动态。
   之前的项目为Ins_fb_pictureSpider_WEB（可以参考之前的repositories），为了方便移植到了微信小程序上。
 2.一些粉丝由于无法科学上网，所以通过此项目可以帮助了解资讯动态。
