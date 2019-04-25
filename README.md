@@ -48,9 +48,9 @@ WeChat applet 'SEEGEM'.Welcome to subscribe !</br>
 
 
 #### 项目展示：
-![](project-img/1.jpg)
-![](project-img/2.jpg)
-![](project-img/3.jpg)
+![](project-img/1.jpg =260x460)
+![](project-img/2.jpg =260x460)
+![](project-img/3.jpg =260x460)
 
 #### 感谢：
 1.[facebook4j](https://github.com/roundrop/facebook4j) </br>
